@@ -46,8 +46,8 @@ const slideIn = {
 // --- Components ---
 function SectionHeading({ title, number }: { title: string, number: string }) {
   return (
-    <motion.div variants={fadeUp} className="mb-12 flex items-end gap-4 border-b-2 border-zinc-800 pb-6">
-      <span className="text-4xl md:text-5xl font-mono font-bold text-emerald-500 leading-none">{number}</span>
+    <motion.div variants={fadeUp} className="mb-12 flex items-end gap-4 border-b-2 border-zinc-800/50 pb-6">
+      <span className="text-4xl md:text-5xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 leading-none">{number}</span>
       <h2 className="text-3xl md:text-4xl font-black text-zinc-100 tracking-tight uppercase">{title}</h2>
     </motion.div>
   );
@@ -55,12 +55,12 @@ function SectionHeading({ title, number }: { title: string, number: string }) {
 
 function ActivityRow({ title, subtitle, date }: { title: string, subtitle: string, date: string }) {
   return (
-    <motion.div variants={fadeUp} className="group flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors px-4 -mx-4">
+    <motion.div variants={fadeUp} className="group flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-all px-4 -mx-4 rounded-xl">
       <div>
-        <h3 className="text-xl font-bold text-zinc-100 mb-1 group-hover:text-emerald-400 transition-colors">{title}</h3>
+        <h3 className="text-xl font-bold text-zinc-100 mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-teal-500 transition-all">{title}</h3>
         <p className="text-zinc-400 font-medium">{subtitle}</p>
       </div>
-      <div className="mt-4 md:mt-0 font-mono text-sm text-zinc-500 bg-zinc-900 px-3 py-1 border border-zinc-800 w-fit">
+      <div className="mt-4 md:mt-0 font-mono text-sm text-zinc-400 bg-[#050B05]/80 px-4 py-2 rounded-full border border-emerald-900/50 shadow-inner w-fit group-hover:border-emerald-500/30 transition-colors">
         {date}
       </div>
     </motion.div>
@@ -69,15 +69,19 @@ function ActivityRow({ title, subtitle, date }: { title: string, subtitle: strin
 
 function TechCategory({ icon: Icon, title, skills }: { icon: any, title: string, skills: string[] }) {
   return (
-    <motion.div variants={fadeUp} className="bg-zinc-900 border border-zinc-800 p-8 hover:border-emerald-500/50 transition-colors relative overflow-hidden group">
-      <div className="absolute top-0 right-0 w-2 h-full bg-emerald-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-      <div className="flex items-center gap-4 mb-8">
-        <Icon className="w-8 h-8 text-emerald-500" />
+    <motion.div variants={fadeUp} className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/80 p-8 rounded-2xl hover:border-emerald-500/50 transition-all duration-500 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <div className="flex items-center gap-4 mb-8 relative z-10">
+        <div className="p-3 bg-zinc-800/50 rounded-xl group-hover:bg-emerald-500/10 transition-colors">
+          <Icon className="w-8 h-8 text-emerald-400" />
+        </div>
         <h3 className="text-2xl font-bold text-zinc-100 uppercase tracking-wide">{title}</h3>
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 relative z-10">
         {skills.map(skill => (
-          <span key={skill} className="px-3 py-1.5 bg-black text-zinc-300 font-mono text-sm border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+          <span key={skill} className="px-4 py-2 bg-[#050505]/50 text-zinc-300 font-mono text-sm rounded-lg border border-zinc-800/80 group-hover:border-emerald-800 transition-colors hover:text-emerald-300">
             {skill}
           </span>
         ))}
@@ -88,31 +92,32 @@ function TechCategory({ icon: Icon, title, skills }: { icon: any, title: string,
 
 function ProjectCard({ title, subtitle, date, desc, role, repo, index }: { title: string, subtitle: string, date: string, desc: string, role?: string, repo: string, index: string }) {
   return (
-    <motion.div variants={fadeUp} className="group flex flex-col bg-zinc-900 border border-zinc-800 hover:border-emerald-500 transition-all duration-300 relative">
-      <div className="p-8 md:p-10 flex-grow flex flex-col">
+    <motion.div variants={fadeUp} className="group flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/80 hover:border-emerald-500/50 rounded-2xl transition-all duration-500 relative overflow-hidden hover:shadow-[0_0_40px_rgba(16,185,129,0.1)]">
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="p-8 md:p-10 flex-grow flex flex-col relative z-10">
         <div className="flex justify-between items-start mb-6">
           <div className="flex gap-4 items-start">
             <span className="font-mono text-emerald-500 font-bold text-xl mt-1">{index}</span>
             <div>
-              <h3 className="text-2xl md:text-3xl font-black text-zinc-100 mb-2 uppercase tracking-tight group-hover:text-emerald-400 transition-colors">{title}</h3>
-              <p className="text-zinc-400 font-medium">{subtitle}</p>
+              <h3 className="text-2xl md:text-3xl font-black text-zinc-100 mb-2 uppercase tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-teal-400 transition-all">{title}</h3>
+              <p className="text-teal-400/80 font-medium">{subtitle}</p>
             </div>
           </div>
-          <a href={repo} target="_blank" rel="noreferrer" className="w-12 h-12 bg-black border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all duration-300 shrink-0">
+          <a href={repo} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-[#050505]/50 border border-zinc-700/50 flex items-center justify-center text-zinc-400 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 hover:text-black hover:border-transparent transition-all duration-300 shrink-0 hover:scale-110">
             <ArrowUpRight className="w-6 h-6" />
           </a>
         </div>
 
         <p className="text-zinc-300 text-lg leading-relaxed mb-8 flex-grow">{desc}</p>
 
-        <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-zinc-800 mt-auto font-mono text-sm">
-          <div className="flex items-center gap-2 text-zinc-400">
+        <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-zinc-800/50 mt-auto font-mono text-sm">
+          <div className="flex items-center gap-2 text-zinc-400 bg-[#050505]/30 px-3 py-1.5 rounded-md">
             <Calendar className="w-4 h-4 text-emerald-500" />
             <span>{date}</span>
           </div>
           {role && (
-            <div className="flex items-center gap-2 text-zinc-400">
-              <User className="w-4 h-4 text-emerald-500" />
+            <div className="flex items-center gap-2 text-zinc-400 bg-[#050505]/30 px-3 py-1.5 rounded-md">
+              <User className="w-4 h-4 text-teal-500" />
               <span>{role}</span>
             </div>
           )}
@@ -124,29 +129,38 @@ function ProjectCard({ title, subtitle, date, desc, role, repo, index }: { title
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen text-zinc-100 font-sans selection:bg-emerald-500/30 selection:text-emerald-100 relative overflow-hidden">
 
-      {/* Brutalist Grid Background */}
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
+      {/* Dynamic Gradient Background (Green Theme) */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#020704]">
+        {/* Soft emerald glow top left */}
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-emerald-600/30 blur-[120px]" />
+        {/* Soft teal glow bottom right */}
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-teal-600/30 blur-[120px]" />
+        {/* Soft lime glow center */}
+        <div className="absolute top-[20%] left-[40%] w-[40%] h-[40%] rounded-full bg-emerald-500/20 blur-[120px]" />
+        {/* Subtle grid on top of glows */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_80%,transparent_100%)]" />
+      </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-zinc-800">
+      <nav className="fixed top-0 inset-x-0 z-50 bg-[#050905]/80 backdrop-blur-xl border-b border-emerald-900/30">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}
-            className="font-black text-2xl tracking-tighter flex items-center gap-2"
+            className="font-black text-2xl tracking-tighter flex items-center gap-2 group cursor-pointer"
           >
-            <div className="w-3 h-3 bg-emerald-500"></div>
-            HS.
+            <div className="w-3 h-3 rounded-full bg-gradient-to-tr from-emerald-400 to-teal-400 shadow-[0_0_10px_rgba(16,185,129,0.5)] group-hover:scale-150 transition-transform"></div>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">HS.</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}
-            className="flex items-center gap-4"
+            className="flex items-center gap-6"
           >
-            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="w-10 h-10 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-500 transition-colors">
-              <Github className="w-5 h-5" />
+            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all">
+              <Github className="w-6 h-6" />
             </a>
-            <a href="mailto:tjdguswns1941@gachon.ac.kr" className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-emerald-500 text-black font-bold uppercase tracking-wider text-sm hover:bg-emerald-400 transition-colors">
+            <a href="mailto:tjdguswns1941@gachon.ac.kr" className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-black font-bold uppercase tracking-wider text-sm rounded-full hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-105 transition-all">
               <Mail className="w-4 h-4" />
               Contact
             </a>
@@ -162,26 +176,27 @@ export default function App() {
           className="relative"
         >
           <motion.div variants={slideIn} className="flex items-center gap-4 mb-8">
-            <span className="w-16 h-1 bg-emerald-500"></span>
-            <span className="font-mono text-emerald-500 font-bold tracking-widest uppercase">Backend & Cloud Engineer</span>
+            <span className="w-16 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full"></span>
+            <span className="font-mono text-emerald-400 font-bold tracking-widest uppercase shadow-sm">Backend & Cloud Engineer</span>
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.9] mb-10">
             Hyunjoon <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">Sung.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-600">Sung.</span>
           </motion.h1>
 
-          <motion.div variants={fadeUp} className="max-w-3xl border-l-4 border-zinc-800 pl-6 md:pl-8 py-2">
+          <motion.div variants={fadeUp} className="max-w-3xl border-l-[3px] border-[transparent] relative pl-6 md:pl-8 py-2">
+            <div className="absolute left-[-3px] top-0 bottom-0 w-[3px] bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full"></div>
             <p className="text-xl md:text-2xl text-zinc-400 font-medium leading-relaxed">
-              백엔드와 클라우드 기술을 깊이 있게 탐구하며, <strong className="text-zinc-100 font-bold">안정적이고 확장 가능한 시스템</strong>을 구축하는 것을 지향합니다. 사용자에게 가치를 전달하는 견고한 인프라를 설계하는 것을 지향합니다.
+              백엔드와 클라우드 기술을 깊이 있게 탐구하며, <strong className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 font-bold">안정적이고 확장 가능한 시스템</strong>을 구축하는 것을 지향합니다. 사용자에게 가치를 전달하는 견고한 인프라를 설계하는 것을 지향합니다.
             </p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 mt-12">
-            <a href="#projects" className="px-8 py-4 bg-emerald-500 text-black font-bold uppercase tracking-wider hover:bg-emerald-400 transition-colors flex items-center gap-2">
+            <a href="#projects" className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-black rounded-full font-bold uppercase tracking-wider hover:shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition-all flex items-center gap-2">
               View Projects <ChevronRight className="w-5 h-5" />
             </a>
-            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="px-8 py-4 bg-zinc-900 text-zinc-100 border border-zinc-800 font-bold uppercase tracking-wider hover:border-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-3">
+            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="px-8 py-4 bg-zinc-900/50 text-zinc-100 rounded-full border border-zinc-700/50 font-bold uppercase tracking-wider hover:border-emerald-500 hover:text-emerald-400 hover:bg-zinc-800 transition-all flex items-center gap-3 shadow-lg">
               <Github className="w-5 h-5" />
               GitHub
             </a>
@@ -194,7 +209,7 @@ export default function App() {
         >
           <SectionHeading number="01" title="Affiliations" />
 
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-2 relative">
             <ActivityRow
               title="Gachon University"
               subtitle="Dept. of Computer Engineering"
@@ -250,8 +265,10 @@ export default function App() {
             {/* Team Projects */}
             <motion.div variants={fadeUp}>
               <div className="flex items-center gap-4 mb-8">
-                <Users className="w-6 h-6 text-emerald-500" />
-                <h3 className="text-2xl font-bold text-zinc-100 uppercase tracking-widest">Team Projects</h3>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                  <Users className="w-6 h-6 text-emerald-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-100 uppercase tracking-widest drop-shadow-sm">Team Projects</h3>
               </div>
               <div className="grid lg:grid-cols-2 gap-6">
                 <ProjectCard
@@ -278,8 +295,10 @@ export default function App() {
             {/* Solo Projects */}
             <motion.div variants={fadeUp}>
               <div className="flex items-center gap-4 mb-8">
-                <User className="w-6 h-6 text-emerald-500" />
-                <h3 className="text-2xl font-bold text-zinc-100 uppercase tracking-widest">Solo Projects</h3>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-teal-500/10 to-emerald-500/10 border border-teal-500/20 shadow-[0_0_15px_rgba(20,184,166,0.1)]">
+                  <User className="w-6 h-6 text-teal-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-100 uppercase tracking-widest drop-shadow-sm">Solo Projects</h3>
               </div>
               <div className="grid lg:grid-cols-2 gap-6">
                 <ProjectCard
@@ -297,10 +316,13 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800 bg-[#050505] py-12">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="border-t border-emerald-900/30 bg-[#050905]/80 backdrop-blur-lg py-12 relative overflow-hidden">
+        {/* subtle footer glow */}
+        <div className="absolute top-0 left-[50%] w-[50%] h-[100px] bg-emerald-500/5 blur-[80px] -translate-x-1/2 rounded-full mix-blend-screen pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
           <div className="flex items-center gap-4">
-            <div className="w-3 h-3 bg-emerald-500"></div>
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
             <span className="font-black text-xl tracking-tighter text-zinc-100">HS.</span>
             <span className="text-zinc-700">|</span>
             <p className="text-zinc-500 font-mono text-sm">
@@ -309,10 +331,10 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="w-10 h-10 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-colors">
+            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#050905] border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-black hover:bg-emerald-500 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all">
               <Github className="w-5 h-5" />
             </a>
-            <a href="mailto:tjdguswns1941@gachon.ac.kr" className="w-10 h-10 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-colors">
+            <a href="mailto:tjdguswns1941@gachon.ac.kr" className="w-10 h-10 rounded-full bg-[#050905] border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-black hover:bg-teal-500 hover:border-teal-500 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] transition-all">
               <Mail className="w-5 h-5" />
             </a>
           </div>
@@ -321,7 +343,3 @@ export default function App() {
     </div>
   );
 }
-
-
-
-
