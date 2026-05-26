@@ -201,6 +201,7 @@ const projectGroups: ProjectGroup[] = [
         subtitle: 'Leets 6th 최종 프로젝트',
         date: '2025.12 - 2026.02',
         description: '사용자 중심의 목표 예산 관리 및 지출 분석 기능을 제공하는 서비스.',
+        image: '/images/monifit.jpg',
         detail: {
           overview: 'MoniFit은 사용자가 설정한 30일간의 목표 예산을 추적하고, 소비 현황을 실시간으로 분석해 주는 서비스입니다. 단순한 가계부를 넘어 예산 대비 지출 비율에 따른 피드백과 매일 소비 목표 달성 시 스탬프를 제공해 건강한 소비 습관 형성을 돕습니다. 백엔드 서버는 소셜 로그인, 예산 기간 관리, 지출 내역 관리, 대시보드 통계 등 핵심 비즈니스 로직을 RESTful API로 제공합니다.',
           responsibilities: [
