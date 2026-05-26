@@ -16,6 +16,13 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+.site-background {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(45, 212, 191, 0.16), transparent 30rem),
+    radial-gradient(circle at 82% 88%, rgba(56, 189, 248, 0.13), transparent 32rem),
+    linear-gradient(135deg, #171a20 0%, #111317 48%, #161b23 100%);
+}
+
 .profile-photo-primary {
   animation: profile-photo-primary 8s ease-in-out infinite;
 }

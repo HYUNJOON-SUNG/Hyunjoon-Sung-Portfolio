@@ -341,7 +341,7 @@ function SectionHeading({ title, eyebrow }: { title: string; eyebrow: string }) 
 function ActivityRow({ icon: Icon, title, subtitle, date, url }: ComponentProps<Activity>) {
   return (
     <motion.li variants={fadeUp} className="relative py-1 pl-8">
-      <span className="absolute left-0 top-7 h-3 w-3 rounded-full border-2 border-emerald-300 bg-[#0b0d10]" />
+      <span className="absolute left-0 top-7 h-3 w-3 rounded-full border-2 border-emerald-300 bg-[#111317]" />
       <a
         href={url}
         target="_blank"
@@ -456,8 +456,8 @@ function ProjectDetailPage({ project }: { project: Project }) {
     : undefined;
 
   return (
-    <div className="min-h-screen bg-[#0b0d10] text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
-      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:56px_56px]" />
+    <div className="site-background min-h-screen text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:56px_56px]" />
       <main className="mx-auto max-w-5xl px-5 py-12 md:py-16">
         <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-4 py-2 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
           <ArrowLeft className="h-4 w-4" />
@@ -523,7 +523,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
 
 function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-[#0b0d10] px-5 py-16 text-zinc-100">
+    <div className="site-background min-h-screen px-5 py-16 text-zinc-100">
       <div className="mx-auto max-w-3xl">
         <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-4 py-2 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
           <ArrowLeft className="h-4 w-4" />
@@ -546,11 +546,10 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0b0d10] text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
-      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:56px_56px]" />
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,#ffffff0d,transparent_34rem)]" />
+    <div className="site-background min-h-screen text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:56px_56px]" />
 
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-[#0b0d10]/90 backdrop-blur">
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-[#111317]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
           <a href="#top" className="font-mono text-xl font-black tracking-tight text-zinc-50">
             HS.
