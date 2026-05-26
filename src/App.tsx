@@ -583,7 +583,7 @@ export default function App() {
       </nav>
 
       <main id="top" className="mx-auto max-w-7xl px-5 pt-40 pb-24 md:pt-32">
-        <motion.section initial="hidden" animate="visible" variants={stagger} className="grid min-h-[calc(100vh-12rem)] content-center gap-12 pb-16 lg:grid-cols-[1fr_22rem] lg:items-center">
+        <motion.section initial="hidden" animate="visible" variants={stagger} className="grid min-h-[calc(100vh-12rem)] content-center gap-12 pb-16 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center xl:grid-cols-[minmax(0,1fr)_26rem]">
           <div>
             <motion.p variants={fadeUp} className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.24em] text-emerald-300">
               Backend & Cloud Engineer
@@ -624,7 +624,7 @@ export default function App() {
               />
             </div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Currently Learning</p>
-            <div className="mt-5 space-y-4 text-sm leading-6 text-zinc-300">
+            <div className="mt-5 space-y-4 break-keep text-sm leading-7 text-zinc-300">
               <p>Spring Boot 기반 API 설계와 안정적인 데이터 처리 흐름</p>
               <p>AWS, Docker, GitHub Actions를 활용한 배포와 운영 자동화</p>
               <p>팀 프로젝트에서 필요한 커뮤니케이션과 백엔드 협업 방식</p>
