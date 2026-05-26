@@ -11,7 +11,7 @@ import {
   GraduationCap,
   Globe2,
   Mail,
-  Phone,
+  MessageCircle,
   Server,
   Terminal,
   Trophy,
@@ -691,9 +691,9 @@ export default function App() {
                 <Mail className="h-5 w-5 shrink-0" />
                 <span className="break-all text-left">tjdguswns1941@gachon.ac.kr</span>
               </a>
-              <a href="tel:010-3624-1941" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-amber-300 hover:text-amber-300">
-                <Phone className="h-5 w-5" />
-                010-3624-1941
+              <a href="https://discord.com/users/399590862193033226" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-amber-300 hover:text-amber-300">
+                <MessageCircle className="h-5 w-5" />
+                Discord
               </a>
               <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
                 <Github className="h-5 w-5" />
@@ -707,7 +707,7 @@ export default function App() {
       <footer className="border-t border-zinc-800 py-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
           <p className="font-mono">© {new Date().getFullYear()} HYUNJOON SUNG.</p>
-          <p>tjdguswns1941@gachon.ac.kr · 010-3624-1941</p>
+          <p>tjdguswns1941@gachon.ac.kr · Discord</p>
         </div>
       </footer>
     </div>
