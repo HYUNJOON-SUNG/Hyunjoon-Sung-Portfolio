@@ -418,13 +418,15 @@ function ProjectCard({ title, subtitle, date, description, image, role, repo, sl
         </a>
       </div>
 
-      {image ? (
-        <img
-          src={image}
-          alt={`${title} preview`}
-          className="aspect-video w-full rounded-lg border border-zinc-800 object-cover"
-        />
-      ) : null}
+      <div className="aspect-video w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40">
+        {image ? (
+          <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center border border-dashed border-zinc-700 bg-[linear-gradient(135deg,#18181b_0%,#09090b_100%)] px-5 text-center">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Project Image</span>
+          </div>
+        )}
+      </div>
 
       <p className="whitespace-pre-line break-keep text-base leading-7 text-zinc-300">{description}</p>
 
@@ -581,7 +583,7 @@ export default function App() {
       </nav>
 
       <main id="top" className="mx-auto max-w-7xl px-5 pt-40 pb-24 md:pt-32">
-        <motion.section initial="hidden" animate="visible" variants={stagger} className="grid min-h-[calc(100vh-12rem)] content-center gap-12 pb-16 lg:grid-cols-[1fr_22rem] lg:items-end">
+        <motion.section initial="hidden" animate="visible" variants={stagger} className="grid min-h-[calc(100vh-12rem)] content-center gap-12 pb-16 lg:grid-cols-[1fr_22rem] lg:items-center">
           <div>
             <motion.p variants={fadeUp} className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.24em] text-emerald-300">
               Backend & Cloud Engineer
@@ -608,7 +610,19 @@ export default function App() {
             </motion.div>
           </div>
 
-          <motion.aside variants={fadeUp} className="rounded-lg border border-zinc-800 bg-zinc-950/75 p-5">
+          <motion.aside variants={fadeUp} className="rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 lg:translate-y-12">
+            <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+              <img
+                src="/images/profile1.jpg"
+                alt="Hyunjoon Sung profile"
+                className="profile-photo-primary absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <img
+                src="/images/profile2.jpg"
+                alt="Hyunjoon Sung profile alternate"
+                className="profile-photo-secondary absolute inset-0 h-full w-full object-cover object-center"
+              />
+            </div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Currently Learning</p>
             <div className="mt-5 space-y-4 text-sm leading-6 text-zinc-300">
               <p>Spring Boot 기반 API 설계와 안정적인 데이터 처리 흐름</p>
