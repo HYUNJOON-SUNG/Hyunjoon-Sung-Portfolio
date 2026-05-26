@@ -261,6 +261,7 @@ const projectGroups: ProjectGroup[] = [
         subtitle: '개인 프로젝트',
         date: '2025.11',
         description: 'MSA 기반 기숙사 룸메이트 매칭 및 실시간 채팅 서비스.',
+        image: '/images/gachon-dorm-matching.png',
         detail: {
           overview: '가천대학교 학생들을 위한 기숙사 룸메이트 매칭 플랫폼입니다. 사용자의 기숙사, 성별, 생활 패턴, 선호도 정보를 기반으로 룸메이트 모집 게시글을 작성하고, 매칭 신청과 수락 이후 실시간 1:1 채팅으로 소통할 수 있도록 구성했습니다. 전체 시스템은 인증, 매칭, 채팅, 프론트엔드, 데이터베이스, 프록시 서버를 분리한 Docker 기반 MSA 구조입니다.',
           responsibilities: [
@@ -399,7 +400,7 @@ const detailFields = ['프로젝트 개요', '담당 역할', '주요 구현', '
 
 function ProjectCard({ title, subtitle, date, description, image, role, repo, slug }: ComponentProps<Project>) {
   return (
-    <motion.article variants={fadeUp} className="grid min-h-full gap-6 rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 transition-colors hover:border-zinc-600 md:p-6">
+    <motion.article variants={fadeUp} className="grid gap-6 rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 transition-colors hover:border-zinc-600 md:p-6">
       <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
         <div className="min-w-0">
           <h4 className="break-keep text-2xl font-black tracking-tight text-zinc-50">{title}</h4>
@@ -652,7 +653,7 @@ export default function App() {
                   <Icon className={`h-6 w-6 ${accent}`} />
                   <h3 className="text-xl font-black uppercase tracking-wide text-zinc-50">{title}</h3>
                 </div>
-                <div className="grid gap-4 lg:grid-cols-2">
+                <div className="grid items-start gap-4 lg:grid-cols-2">
                   {projects.map((project) => (
                     <ProjectCard key={project.title} {...project} />
                   ))}
