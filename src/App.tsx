@@ -176,6 +176,7 @@ const projectGroups: ProjectGroup[] = [
         subtitle: '가천대학교 p-실무 프로젝트 (우수상)',
         date: '2025.11',
         description: 'AI를 활용한 일기 감정 분석 및 피드백 서비스.',
+        image: '/images/emoji-diary.png',
         detail: {
           overview: '사용자의 일기를 AI로 감정 분석해 맞춤형 피드백을 제공하고, 감정 상태에 따른 위험도를 감지하는 서비스입니다.\n교내 p-실무프로젝트에서 우수상을 수상했습니다.',
           responsibilities: [
