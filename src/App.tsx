@@ -107,7 +107,7 @@ const activities: Activity[] = [
   {
     icon: Users,
     title: 'Leets 6th',
-    subtitle: '교내 IT 연합 동아리 · 백엔드 파트',
+    subtitle: '교내 IT 동아리 · 백엔드 파트',
     date: '2025.09 - 2026.02',
     url: 'https://www.leets.land/',
   },
