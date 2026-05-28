@@ -125,25 +125,25 @@ const techCategories: TechCategory[] = [
     icon: Server,
     title: 'Backend',
     skills: ['Java', 'Spring Boot'],
-    accent: 'text-emerald-300 border-emerald-400/40',
+    accent: 'border-emerald-200 bg-emerald-50/70 text-emerald-800',
   },
   {
     icon: Database,
     title: 'Database',
     skills: ['MySQL'],
-    accent: 'text-cyan-300 border-cyan-400/40',
+    accent: 'border-teal-200 bg-teal-50/70 text-teal-800',
   },
   {
     icon: Cloud,
     title: 'Infrastructure',
     skills: ['AWS', 'Docker', 'GitHub Actions'],
-    accent: 'text-amber-300 border-amber-400/40',
+    accent: 'border-lime-200 bg-lime-50/70 text-lime-800',
   },
   {
     icon: Terminal,
     title: 'Tools',
     skills: ['Notion', 'GitHub', 'Discord'],
-    accent: 'text-zinc-200 border-zinc-500/50',
+    accent: 'border-stone-200 bg-stone-50/80 text-stone-700',
   },
 ];
 
@@ -169,7 +169,7 @@ const projectGroups: ProjectGroup[] = [
   {
     title: 'Team Projects',
     icon: Users,
-    accent: 'text-emerald-300',
+    accent: 'text-emerald-700',
     projects: [
       {
         title: 'Emoji-Diary',
@@ -256,7 +256,7 @@ const projectGroups: ProjectGroup[] = [
   {
     title: 'Solo Projects',
     icon: User,
-    accent: 'text-cyan-300',
+    accent: 'text-teal-700',
     projects: [
       {
         title: 'Gachon Dorm Matching',
@@ -292,7 +292,7 @@ const projectGroups: ProjectGroup[] = [
   {
     title: 'Hackathon Projects',
     icon: Trophy,
-    accent: 'text-amber-300',
+    accent: 'text-lime-700',
     projects: [
       {
         title: '홍대병동',
@@ -333,8 +333,8 @@ const allProjects = projectGroups.flatMap((group) => group.projects);
 function SectionHeading({ title, eyebrow }: { title: string; eyebrow: string }) {
   return (
     <motion.div variants={fadeUp} className="mb-8 max-w-3xl">
-      <p className="mb-3 font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">{eyebrow}</p>
-      <h2 className="text-3xl font-black tracking-tight text-zinc-50 md:text-5xl">{title}</h2>
+      <p className="mb-3 font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">{eyebrow}</p>
+      <h2 className="text-3xl font-black tracking-tight text-stone-950 md:text-5xl">{title}</h2>
     </motion.div>
   );
 }
@@ -342,27 +342,27 @@ function SectionHeading({ title, eyebrow }: { title: string; eyebrow: string }) 
 function ActivityRow({ icon: Icon, title, subtitle, date, url }: ComponentProps<Activity>) {
   return (
     <motion.li variants={fadeUp} className="relative py-1 pl-8">
-      <span className="absolute left-0 top-7 h-3 w-3 rounded-full border-2 border-emerald-300 bg-[#111317]" />
+      <span className="absolute left-0 top-7 h-3 w-3 rounded-full border-2 border-emerald-700 bg-[#f7f8f3]" />
       <a
         href={url}
         target="_blank"
         rel="noreferrer"
         aria-label={`${title} external link`}
-        className="group grid gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-zinc-900/70 md:grid-cols-[1fr_auto] md:items-center"
+        className="group grid gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-white/70 md:grid-cols-[1fr_auto] md:items-center"
       >
         <div className="flex gap-4">
-          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 transition-colors group-hover:border-emerald-300">
-            <Icon className="h-5 w-5 text-emerald-300" />
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-stone-200 bg-emerald-50 transition-colors group-hover:border-emerald-500">
+            <Icon className="h-5 w-5 text-emerald-700" />
           </div>
           <div>
-            <h3 className="inline-flex items-center gap-2 text-lg font-bold text-zinc-50 transition-colors group-hover:text-emerald-300">
+            <h3 className="inline-flex items-center gap-2 text-lg font-bold text-stone-950 transition-colors group-hover:text-emerald-800">
               {title}
-              <ExternalLink className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-emerald-300" />
+              <ExternalLink className="h-4 w-4 text-stone-400 transition-colors group-hover:text-emerald-700" />
             </h3>
-            <p className="mt-1 text-sm leading-6 text-zinc-400">{subtitle}</p>
+            <p className="mt-1 text-sm leading-6 text-stone-600">{subtitle}</p>
           </div>
         </div>
-        <span className="w-fit rounded-md border border-zinc-700 px-3 py-1.5 font-mono text-xs font-semibold text-zinc-300">
+        <span className="w-fit rounded-md border border-stone-200 bg-white/70 px-3 py-1.5 font-mono text-xs font-semibold text-stone-600">
           {date}
         </span>
       </a>
@@ -372,14 +372,14 @@ function ActivityRow({ icon: Icon, title, subtitle, date, url }: ComponentProps<
 
 function TechCard({ icon: Icon, title, skills, accent }: ComponentProps<TechCategory>) {
   return (
-    <motion.article variants={fadeUp} className={`rounded-lg border bg-zinc-950/70 p-5 ${accent}`}>
+    <motion.article variants={fadeUp} className={`rounded-lg border p-5 shadow-sm shadow-stone-200/60 ${accent}`}>
       <div className="mb-6 flex items-center gap-3">
         <Icon className="h-6 w-6" />
-        <h3 className="text-lg font-bold uppercase tracking-wide text-zinc-50">{title}</h3>
+        <h3 className="text-lg font-bold uppercase tracking-wide text-stone-950">{title}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <span key={skill} className="rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-mono text-sm text-zinc-300">
+          <span key={skill} className="rounded-md border border-stone-200 bg-white/80 px-3 py-1.5 font-mono text-sm text-stone-700">
             {skill}
           </span>
         ))}
@@ -390,10 +390,10 @@ function TechCard({ icon: Icon, title, skills, accent }: ComponentProps<TechCate
 
 function WorkingStyleCard({ icon: Icon, title, description }: ComponentProps<WorkingStyle>) {
   return (
-    <motion.article variants={fadeUp} className="rounded-lg border border-zinc-800 bg-zinc-950/70 p-5">
-      <Icon className="mb-5 h-6 w-6 text-amber-300" />
-      <h3 className="text-lg font-bold text-zinc-50">{title}</h3>
-      <p className="mt-3 break-keep text-sm leading-7 text-zinc-300">{description}</p>
+    <motion.article variants={fadeUp} className="rounded-lg border border-stone-200 bg-white/80 p-5 shadow-sm shadow-stone-200/70">
+      <Icon className="mb-5 h-6 w-6 text-emerald-700" />
+      <h3 className="text-lg font-bold text-stone-950">{title}</h3>
+      <p className="mt-3 break-keep text-sm leading-7 text-stone-700">{description}</p>
     </motion.article>
   );
 }
@@ -402,42 +402,42 @@ const detailFields = ['프로젝트 개요', '담당 역할', '주요 구현', '
 
 function ProjectCard({ title, subtitle, date, description, image, role, repo, slug }: ComponentProps<Project>) {
   return (
-    <motion.article variants={fadeUp} className="grid gap-6 rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 transition-colors hover:border-zinc-600 md:p-6">
+    <motion.article variants={fadeUp} className="grid gap-6 rounded-lg border border-stone-200 bg-white/85 p-5 shadow-sm shadow-stone-200/70 transition-colors hover:border-emerald-300 md:p-6">
       <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
         <div className="min-w-0">
-          <h4 className="break-keep text-2xl font-black tracking-tight text-zinc-50">{title}</h4>
-          <p className="mt-2 break-keep text-sm font-semibold text-cyan-300">{subtitle}</p>
+          <h4 className="break-keep text-2xl font-black tracking-tight text-stone-950">{title}</h4>
+          <p className="mt-2 break-keep text-sm font-semibold text-emerald-700">{subtitle}</p>
         </div>
         <a
           href={repo}
           target="_blank"
           rel="noreferrer"
           aria-label={`${title} repository`}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-zinc-700 text-zinc-300 transition-colors hover:border-emerald-300 hover:text-emerald-300"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition-colors hover:border-emerald-500 hover:text-emerald-700"
         >
           <Github className="h-5 w-5" />
         </a>
       </div>
 
-      <div className="aspect-video w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40">
+      <div className="aspect-video w-full overflow-hidden rounded-lg border border-stone-200 bg-stone-100/70">
         {image ? (
           <img src={image} alt={`${title} preview`} className="h-full w-full object-cover" />
         ) : (
-          <div className="flex h-full w-full items-center justify-center border border-dashed border-zinc-700 bg-[linear-gradient(135deg,#18181b_0%,#09090b_100%)] px-5 text-center">
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Project Image</span>
+          <div className="flex h-full w-full items-center justify-center border border-dashed border-stone-300 bg-[linear-gradient(135deg,#f5f8f1_0%,#e7f0e8_100%)] px-5 text-center">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">Project Image</span>
           </div>
         )}
       </div>
 
-      <p className="whitespace-pre-line break-keep text-base leading-7 text-zinc-300">{description}</p>
+      <p className="whitespace-pre-line break-keep text-base leading-7 text-stone-700">{description}</p>
 
-      <div className="flex flex-wrap gap-2 self-end border-t border-zinc-800 pt-5 font-mono text-xs font-semibold text-zinc-400">
-        <span className="inline-flex items-center gap-2 rounded-md border border-zinc-800 px-3 py-1.5">
-          <Calendar className="h-4 w-4 text-emerald-300" />
+      <div className="flex flex-wrap gap-2 self-end border-t border-stone-200 pt-5 font-mono text-xs font-semibold text-stone-600">
+        <span className="inline-flex items-center gap-2 rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5">
+          <Calendar className="h-4 w-4 text-emerald-700" />
           {date}
         </span>
-        {role ? <span className="rounded-md border border-zinc-800 px-3 py-1.5">{role}</span> : null}
-        <a href={`/projects/${slug}`} className="ml-auto rounded-md bg-zinc-100 px-3 py-1.5 font-sans text-xs font-bold text-zinc-950 transition-colors hover:bg-cyan-200">
+        {role ? <span className="rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5">{role}</span> : null}
+        <a href={`/projects/${slug}`} className="ml-auto rounded-md bg-emerald-800 px-3 py-1.5 font-sans text-xs font-bold text-white transition-colors hover:bg-emerald-700">
           상세 보기
         </a>
       </div>
@@ -457,44 +457,44 @@ function ProjectDetailPage({ project }: { project: Project }) {
     : undefined;
 
   return (
-    <div className="site-background min-h-screen text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
-      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:56px_56px]" />
+    <div className="site-background min-h-screen text-stone-900 selection:bg-emerald-200 selection:text-emerald-950">
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#2f6f4e10_1px,transparent_1px),linear-gradient(to_bottom,#2f6f4e10_1px,transparent_1px)] bg-[size:56px_56px]" />
       <main className="mx-auto max-w-5xl px-5 py-12 md:py-16">
-        <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-4 py-2 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
+        <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-4 py-2 font-bold text-stone-800 transition-colors hover:border-emerald-400 hover:text-emerald-800">
           <ArrowLeft className="h-4 w-4" />
           Projects
         </a>
 
         <motion.section initial="hidden" animate="visible" variants={stagger} className="mt-12">
-          <motion.p variants={fadeUp} className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Project Detail</motion.p>
-          <motion.h1 variants={fadeUp} className="mt-4 break-keep text-4xl font-black tracking-tight text-zinc-50 md:text-6xl">{project.title}</motion.h1>
-          <motion.p variants={fadeUp} className="mt-4 break-keep text-lg font-semibold text-zinc-400">{project.subtitle}</motion.p>
+          <motion.p variants={fadeUp} className="font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">Project Detail</motion.p>
+          <motion.h1 variants={fadeUp} className="mt-4 break-keep text-4xl font-black tracking-tight text-stone-950 md:text-6xl">{project.title}</motion.h1>
+          <motion.p variants={fadeUp} className="mt-4 break-keep text-lg font-semibold text-stone-600">{project.subtitle}</motion.p>
 
           {project.image ? (
             <motion.img
               variants={fadeUp}
               src={project.image}
               alt={`${project.title} preview`}
-              className="mt-10 aspect-video w-full rounded-lg border border-zinc-800 object-cover"
+              className="mt-10 aspect-video w-full rounded-lg border border-stone-200 object-cover shadow-sm shadow-stone-200/70"
             />
           ) : null}
 
           <motion.div variants={fadeUp} className="mt-10 grid gap-5">
             {detailFields.map((field) => (
-              <section key={field} className="min-h-36 rounded-lg border border-dashed border-zinc-800 bg-zinc-950/70 p-5">
-                <h2 className="text-lg font-bold text-zinc-100">{field}</h2>
+              <section key={field} className="min-h-36 rounded-lg border border-dashed border-stone-300 bg-white/80 p-5">
+                <h2 className="text-lg font-bold text-stone-950">{field}</h2>
                 {details ? (
                   Array.isArray(details[field]) ? (
                     field === '사용 기술' ? (
                       <div className="mt-4 flex flex-wrap gap-2">
                         {details[field].map((item) => (
-                          <span key={item} className="rounded-md bg-zinc-900 px-3 py-1.5 font-mono text-xs font-semibold text-zinc-300 ring-1 ring-zinc-800">
+                          <span key={item} className="rounded-md bg-emerald-50 px-3 py-1.5 font-mono text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200">
                             {item}
                           </span>
                         ))}
                       </div>
                     ) : (
-                      <ul className="mt-4 space-y-3 text-sm leading-7 text-zinc-300">
+                      <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
                         {details[field].map((item) => (
                           <li key={item} className="break-keep">
                             {item}
@@ -503,7 +503,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
                       </ul>
                     )
                   ) : (
-                    <p className="mt-4 whitespace-pre-line break-keep text-sm leading-7 text-zinc-300">{details[field]}</p>
+                    <p className="mt-4 whitespace-pre-line break-keep text-sm leading-7 text-stone-700">{details[field]}</p>
                   )
                 ) : null}
               </section>
@@ -511,7 +511,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-8">
-            <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-emerald-300 hover:text-emerald-300">
+            <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-500 hover:text-emerald-800">
               <Github className="h-5 w-5" />
               GitHub
             </a>
@@ -524,9 +524,9 @@ function ProjectDetailPage({ project }: { project: Project }) {
 
 function NotFoundPage() {
   return (
-    <div className="site-background min-h-screen px-5 py-16 text-zinc-100">
+    <div className="site-background min-h-screen px-5 py-16 text-stone-900">
       <div className="mx-auto max-w-3xl">
-        <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-4 py-2 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
+        <a href="/#projects" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-4 py-2 font-bold text-stone-800 transition-colors hover:border-emerald-400 hover:text-emerald-800">
           <ArrowLeft className="h-4 w-4" />
           Projects
         </a>
@@ -547,37 +547,37 @@ export default function App() {
   }
 
   return (
-    <div className="site-background min-h-screen text-zinc-100 selection:bg-emerald-300 selection:text-zinc-950">
-      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:56px_56px]" />
+    <div className="site-background min-h-screen text-stone-900 selection:bg-emerald-200 selection:text-emerald-950">
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,#2f6f4e10_1px,transparent_1px),linear-gradient(to_bottom,#2f6f4e10_1px,transparent_1px)] bg-[size:56px_56px]" />
 
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-[#111317]/90 backdrop-blur">
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-stone-200 bg-[#fafaf6]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
-          <a href="#top" className="font-mono text-xl font-black tracking-tight text-zinc-50">
+          <a href="#top" className="font-mono text-xl font-black tracking-tight text-emerald-900">
             HS.
           </a>
-          <div className="hidden items-center gap-6 text-sm font-semibold text-zinc-400 md:flex">
-            <a href="#working-style" className="transition-colors hover:text-zinc-50">Style</a>
-            <a href="#affiliations" className="transition-colors hover:text-zinc-50">Affiliations</a>
-            <a href="#tech" className="transition-colors hover:text-zinc-50">Tech</a>
-            <a href="#projects" className="transition-colors hover:text-zinc-50">Projects</a>
-            <a href="#contact" className="transition-colors hover:text-zinc-50">Contact</a>
+          <div className="hidden items-center gap-6 text-sm font-semibold text-stone-600 md:flex">
+            <a href="#working-style" className="transition-colors hover:text-emerald-800">Style</a>
+            <a href="#affiliations" className="transition-colors hover:text-emerald-800">Affiliations</a>
+            <a href="#tech" className="transition-colors hover:text-emerald-800">Tech</a>
+            <a href="#projects" className="transition-colors hover:text-emerald-800">Projects</a>
+            <a href="#contact" className="transition-colors hover:text-emerald-800">Contact</a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" aria-label="GitHub profile" className="text-zinc-400 transition-colors hover:text-zinc-50">
+            <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" aria-label="GitHub profile" className="text-stone-600 transition-colors hover:text-emerald-800">
               <Github className="h-5 w-5" />
             </a>
-            <a href="mailto:tjdguswns1941@gachon.ac.kr" aria-label="Send email" className="text-zinc-400 transition-colors hover:text-zinc-50">
+            <a href="mailto:tjdguswns1941@gachon.ac.kr" aria-label="Send email" className="text-stone-600 transition-colors hover:text-emerald-800">
               <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
-        <div className="border-t border-zinc-800 px-5 py-2 md:hidden">
-          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto text-sm font-semibold text-zinc-400">
-            <a href="#working-style" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-zinc-900 hover:text-zinc-50">Style</a>
-            <a href="#affiliations" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-zinc-900 hover:text-zinc-50">Affiliations</a>
-            <a href="#tech" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-zinc-900 hover:text-zinc-50">Tech</a>
-            <a href="#projects" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-zinc-900 hover:text-zinc-50">Projects</a>
-            <a href="#contact" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-zinc-900 hover:text-zinc-50">Contact</a>
+        <div className="border-t border-stone-200 px-5 py-2 md:hidden">
+          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto text-sm font-semibold text-stone-600">
+            <a href="#working-style" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-emerald-50 hover:text-emerald-800">Style</a>
+            <a href="#affiliations" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-emerald-50 hover:text-emerald-800">Affiliations</a>
+            <a href="#tech" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-emerald-50 hover:text-emerald-800">Tech</a>
+            <a href="#projects" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-emerald-50 hover:text-emerald-800">Projects</a>
+            <a href="#contact" className="shrink-0 rounded-md px-3 py-2 transition-colors hover:bg-emerald-50 hover:text-emerald-800">Contact</a>
           </div>
         </div>
       </nav>
@@ -585,43 +585,43 @@ export default function App() {
       <main id="top" className="mx-auto max-w-7xl px-5 pt-40 pb-24 md:pt-32">
         <motion.section initial="hidden" animate="visible" variants={stagger} className="grid min-h-[calc(100vh-12rem)] content-center gap-12 pb-16 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center xl:grid-cols-[minmax(0,1fr)_26rem]">
           <div>
-            <motion.p variants={fadeUp} className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.24em] text-emerald-300">
+            <motion.p variants={fadeUp} className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.24em] text-emerald-700">
               Backend & Cloud Engineer
             </motion.p>
-            <motion.h1 variants={fadeUp} className="max-w-5xl break-keep text-5xl font-black tracking-tight text-zinc-50 sm:text-7xl lg:text-8xl">
+            <motion.h1 variants={fadeUp} className="max-w-5xl break-keep text-4xl font-black tracking-tight text-stone-950 sm:text-7xl lg:text-8xl">
               Hyunjoon Sung
             </motion.h1>
-            <motion.p variants={fadeUp} className="mt-8 max-w-3xl break-keep text-lg leading-8 text-zinc-300 md:text-xl">
+            <motion.p variants={fadeUp} className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 md:break-keep md:text-xl">
               백엔드와 클라우드 인프라를 중심으로 공부하고 있는 성현준입니다.
-              <br />
+              <br className="hidden md:block" />
               안정적으로 운영될 수 있는 서비스 구조를 이해하고 구현하며,
-              <br />
+              <br className="hidden md:block" />
               실제 사용자에게 제공되는 서비스의 출시와 운영, 수익화까지 경험하는 것을 목표로 하고 있습니다.
             </motion.p>
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
-              <a href="#projects" className="rounded-lg bg-emerald-300 px-5 py-3 font-bold text-zinc-950 transition-colors hover:bg-emerald-200">
+            <motion.div variants={fadeUp} className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+              <a href="#projects" className="rounded-lg bg-emerald-800 px-5 py-3 text-center font-bold text-white transition-colors hover:bg-emerald-700">
                 View Projects
               </a>
-              <a href="#contact" className="rounded-lg bg-cyan-300 px-5 py-3 font-bold text-zinc-950 transition-colors hover:bg-cyan-200">
+              <a href="#contact" className="rounded-lg bg-emerald-100 px-5 py-3 text-center font-bold text-emerald-900 ring-1 ring-emerald-200 transition-colors hover:bg-emerald-200">
                 Contact
               </a>
-              <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
+              <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="col-span-2 inline-flex items-center justify-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-400 hover:text-emerald-800 sm:col-span-1">
                 <Github className="h-5 w-5" />
                 GitHub
               </a>
             </motion.div>
           </div>
 
-          <motion.aside variants={fadeUp} className="rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 lg:translate-y-12">
-            <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
+          <motion.aside variants={fadeUp} className="rounded-lg border border-stone-200 bg-white/85 p-5 shadow-sm shadow-stone-200/70 lg:translate-y-12">
+            <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-lg border border-stone-200 bg-stone-100">
               <img
                 src="/images/profile.jpg"
                 alt="Hyunjoon Sung profile"
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Currently Learning</p>
-            <div className="mt-5 space-y-4 break-keep text-sm leading-7 text-zinc-300">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Currently Learning</p>
+            <div className="mt-5 space-y-4 break-keep text-sm leading-7 text-stone-700">
               <p>Spring Boot 기반 API 설계와 안정적인 데이터 처리 흐름</p>
               <p>AWS, Docker, GitHub Actions를 활용한 배포와 운영 자동화</p>
               <p>팀 프로젝트에서 필요한 커뮤니케이션과 백엔드 협업 방식</p>
@@ -640,7 +640,7 @@ export default function App() {
 
         <motion.section id="affiliations" initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} variants={stagger} className="scroll-mt-24 py-20">
           <SectionHeading eyebrow="02 / Activity" title="Affiliations & Activity" />
-          <ul className="relative before:absolute before:bottom-5 before:left-[5px] before:top-5 before:w-px before:bg-zinc-800">
+          <ul className="relative before:absolute before:bottom-5 before:left-[5px] before:top-5 before:w-px before:bg-stone-200">
             {activities.map((activity) => (
               <ActivityRow key={activity.title} {...activity} />
             ))}
@@ -663,7 +663,7 @@ export default function App() {
               <motion.div key={title} variants={fadeUp}>
                 <div className="mb-5 flex items-center gap-3">
                   <Icon className={`h-6 w-6 ${accent}`} />
-                  <h3 className="text-xl font-black uppercase tracking-wide text-zinc-50">{title}</h3>
+                  <h3 className="text-xl font-black uppercase tracking-wide text-stone-950">{title}</h3>
                 </div>
                 <div className="grid items-start gap-4 lg:grid-cols-2">
                   {projects.map((project) => (
@@ -676,23 +676,23 @@ export default function App() {
         </motion.section>
 
         <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} variants={stagger} className="scroll-mt-24 py-20">
-          <div className="grid gap-8 rounded-lg border border-zinc-800 bg-zinc-950/75 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+          <div className="grid gap-8 rounded-lg border border-stone-200 bg-white/85 p-6 shadow-sm shadow-stone-200/70 md:grid-cols-[1fr_auto] md:items-center md:p-8">
             <div>
               <SectionHeading eyebrow="05 / Contact" title="Contact" />
-              <p className="max-w-2xl break-keep text-base leading-7 text-zinc-300">
+              <p className="max-w-2xl break-keep text-base leading-7 text-stone-700">
                 프로젝트, 개발, 협업에 관해 함께 이야기해 보고 싶은 내용이 있다면 편하게 연락해 주세요.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <a href="mailto:tjdguswns1941@gachon.ac.kr" className="inline-flex max-w-full items-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 font-bold text-zinc-950 transition-colors hover:bg-cyan-200">
+              <a href="mailto:tjdguswns1941@gachon.ac.kr" className="inline-flex max-w-full items-center gap-2 rounded-lg bg-emerald-800 px-5 py-3 font-bold text-white transition-colors hover:bg-emerald-700">
                 <Mail className="h-5 w-5 shrink-0" />
                 <span className="break-all text-left">tjdguswns1941@gachon.ac.kr</span>
               </a>
-              <a href="https://discord.com/users/399590862193033226" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-amber-300 hover:text-amber-300">
+              <a href="https://discord.com/users/399590862193033226" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-400 hover:text-emerald-800">
                 <MessageCircle className="h-5 w-5" />
                 Discord
               </a>
-              <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-bold text-zinc-100 transition-colors hover:border-zinc-500">
+              <a href="https://github.com/HYUNJOON-SUNG" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-400 hover:text-emerald-800">
                 <Github className="h-5 w-5" />
                 GitHub
               </a>
@@ -701,8 +701,8 @@ export default function App() {
         </motion.section>
       </main>
 
-      <footer className="border-t border-zinc-800 py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
+      <footer className="border-t border-stone-200 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-stone-500 md:flex-row md:items-center md:justify-between">
           <p className="font-mono">© {new Date().getFullYear()} HYUNJOON SUNG.</p>
           <p>tjdguswns1941@gachon.ac.kr · Discord</p>
         </div>

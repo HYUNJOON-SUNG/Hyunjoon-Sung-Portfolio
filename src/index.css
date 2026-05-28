@@ -12,15 +12,15 @@ html {
 }
 
 a:focus-visible {
-  outline: 2px solid #67e8f9;
+  outline: 2px solid #2f6f4e;
   outline-offset: 4px;
 }
 
 .site-background {
   background:
-    radial-gradient(circle at 18% 10%, rgba(45, 212, 191, 0.16), transparent 30rem),
-    radial-gradient(circle at 82% 88%, rgba(56, 189, 248, 0.13), transparent 32rem),
-    linear-gradient(135deg, #171a20 0%, #111317 48%, #161b23 100%);
+    radial-gradient(circle at 14% 8%, rgba(111, 148, 118, 0.16), transparent 32rem),
+    radial-gradient(circle at 88% 86%, rgba(47, 111, 78, 0.12), transparent 34rem),
+    linear-gradient(135deg, #fafaf6 0%, #f5f8f1 50%, #eef4ea 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
