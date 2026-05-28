@@ -23,58 +23,9 @@ a:focus-visible {
     linear-gradient(135deg, #171a20 0%, #111317 48%, #161b23 100%);
 }
 
-.profile-photo-primary {
-  animation: profile-photo-primary 8s ease-in-out infinite;
-}
-
-.profile-photo-secondary {
-  animation: profile-photo-secondary 8s ease-in-out infinite;
-}
-
-@keyframes profile-photo-primary {
-  0%,
-  42% {
-    opacity: 1;
-  }
-
-  50%,
-  92% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes profile-photo-secondary {
-  0%,
-  42% {
-    opacity: 0;
-  }
-
-  50%,
-  92% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .profile-photo-primary,
-  .profile-photo-secondary {
-    animation: none;
-  }
-
-  .profile-photo-secondary {
-    opacity: 0;
   }
 }
 

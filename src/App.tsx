@@ -107,7 +107,7 @@ const activities: Activity[] = [
   {
     icon: Users,
     title: 'Leets 6th',
-    subtitle: '교내 IT 연합 동아리',
+    subtitle: '교내 IT 연합 동아리 · 백엔드 파트',
     date: '2025.09 - 2026.02',
     url: 'https://www.leets.land/',
   },
@@ -160,8 +160,8 @@ const workingStyles: WorkingStyle[] = [
   },
   {
     icon: GraduationCap,
-    title: '배우려는 자세',
-    description: '아직 배워야 할 것이 많다고 생각하며, 동료들의 문제 해결 방식과 피드백을 적극적으로 배우고자 합니다.',
+    title: '피드백을 실행으로 연결합니다',
+    description: '문제 해결 과정에서 동료의 관점과 피드백을 빠르게 흡수하고, 이를 코드와 협업 방식의 개선으로 이어갑니다.',
   },
 ];
 
@@ -594,7 +594,9 @@ export default function App() {
             <motion.p variants={fadeUp} className="mt-8 max-w-3xl break-keep text-lg leading-8 text-zinc-300 md:text-xl">
               백엔드와 클라우드 인프라를 중심으로 공부하고 있는 성현준입니다.
               <br />
-              안정적으로 운영될 수 있는 서비스 구조를 이해하고 구현하기 위해 꾸준히 경험을 쌓고 있습니다.
+              안정적으로 운영될 수 있는 서비스 구조를 이해하고 구현하며,
+              <br />
+              실제 사용자에게 제공되는 서비스의 출시와 운영, 수익화까지 경험하는 것을 목표로 하고 있습니다.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
               <a href="#projects" className="rounded-lg bg-emerald-300 px-5 py-3 font-bold text-zinc-950 transition-colors hover:bg-emerald-200">
@@ -613,14 +615,9 @@ export default function App() {
           <motion.aside variants={fadeUp} className="rounded-lg border border-zinc-800 bg-zinc-950/75 p-5 lg:translate-y-12">
             <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
               <img
-                src="/images/profile1.jpg"
+                src="/images/profile.jpg"
                 alt="Hyunjoon Sung profile"
-                className="profile-photo-primary absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <img
-                src="/images/profile2.jpg"
-                alt="Hyunjoon Sung profile alternate"
-                className="profile-photo-secondary absolute inset-0 h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Currently Learning</p>
