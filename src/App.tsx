@@ -48,7 +48,7 @@ type Project = {
 };
 
 type ProjectDetail = {
-  overview: string;
+  overview: string | string[];
   responsibilities: string[];
   implementations: string[];
   techStack: string[];
@@ -178,19 +178,26 @@ const projectGroups: ProjectGroup[] = [
         description: 'AI를 활용한 일기 감정 분석 및 피드백 서비스.',
         image: '/images/emoji-diary.png',
         detail: {
-          overview: '사용자의 일기를 AI로 감정 분석해 맞춤형 피드백을 제공하고, 감정 상태에 따른 위험도를 감지하는 서비스입니다.\n교내 p-실무프로젝트에서 우수상을 수상했습니다.',
+          overview: [
+            'AI 기반 감정 분석 및 맞춤형 그림일기 생성 서비스.',
+            'KoBERT 기반 7가지 감정 카테고리 분류.',
+            'Gemini 기반 그림일기, 공감 피드백, 추천 콘텐츠 제공.',
+            'Spring Boot 비즈니스 서버와 FastAPI AI 서버 분리 구조.',
+            '교내 p-실무프로젝트 우수상 수상.',
+          ],
           responsibilities: [
-            '프로젝트 전체 요구사항을 분석하고 사용자 및 관리자 도메인의 기능 범위를 구체화했습니다.',
-            '서비스 전체 데이터베이스 구조를 먼저 정리해 ERD 명세서를 작성하고, 프론트엔드 및 AI 서버 연동을 고려한 API 명세서를 전체 범위로 설계했습니다.',
-            '전체 설계 이후에는 관리자 도메인 API 구현을 담당해 통계 조회와 에러 로그 추적 기능을 개발했습니다.',
+            '프로젝트 요구사항 구체화 및 기능 범위 정리.',
+            '사용자/관리자 도메인 ERD 및 API 명세 설계/문서화.',
+            '관리자 도메인 백엔드 구현.',
           ],
           implementations: [
-            '일기 작성, 감정 분석 결과 조회, 피드백 제공 흐름을 고려해 사용자 기능부터 관리자 기능까지 확장 가능한 데이터 구조를 설계했습니다.',
-            '가입자 수, 일기 작성 추이, 사용자 위험 레벨 분포 등 핵심 지표를 조건별로 집계해 반환하는 관리자 대시보드 API를 구현했습니다.',
-            '로그 레벨, 날짜, 검색어 기반 필터링과 페이징을 지원하는 에러 로그 추적 API를 구현하고, 스택 트레이스 상세 조회로 문제 원인 분석이 가능하도록 구성했습니다.',
+            '관리자 대시보드 통계 API 구현.',
+            '가입자 수, 일기 작성 추이, 위험 레벨 분포 집계 구현.',
+            '에러 로그 필터링, 페이징, 상세 조회 API 구현.',
+            '스택 트레이스 기반 오류 원인 추적 흐름 구성.',
           ],
           techStack: ['Spring Boot', 'FastAPI', 'Java', 'Python', 'MariaDB', 'Spring Security'],
-          lessons: '초기 기획 단계부터 요구사항을 분석하고 데이터베이스와 API를 함께 설계하며, 단일 기능 구현을 넘어 서비스 전체의 데이터 흐름을 구조화하는 경험을 했습니다. 또한 통계 집계와 에러 모니터링 기능을 구현하면서 실제 운영 환경에서의 유지보수성과 데이터 가시성을 함께 고려하는 백엔드 개발 관점을 기를 수 있었습니다.',
+          lessons: '초기 기획 단계에서 추상적인 요구사항을 사용자/관리자 기능 범위로 구체화하고, 이를 ERD와 API 명세로 문서화하면서 기능 구현 전에 서비스 전체 데이터 흐름을 먼저 정리하는 중요성을 체감했습니다. 특히 사용자 기능과 관리자 기능이 같은 데이터를 서로 다른 관점에서 사용하는 구조를 설계하며, 초기 데이터 모델링과 API 응답 형식이 이후 개발 생산성과 협업 방식에 큰 영향을 준다는 점을 배웠습니다. 또한 관리자 통계 집계와 에러 로그 추적 기능을 구현하면서 단순히 데이터를 저장하고 조회하는 것을 넘어, 운영자가 서비스 상태를 파악하고 문제 원인을 추적할 수 있도록 데이터 가시성과 유지보수성을 함께 고려하는 백엔드 개발 관점을 기를 수 있었습니다.',
         },
         role: 'Backend Development',
         repo: 'https://github.com/HYUNJOON-SUNG/Emoji-Diary',
@@ -204,19 +211,28 @@ const projectGroups: ProjectGroup[] = [
         description: '사용자 중심의 목표 예산 관리 및 지출 분석 기능을 제공하는 서비스.',
         image: '/images/monifit.jpg',
         detail: {
-          overview: 'MoniFit은 사용자가 설정한 30일간의 목표 예산을 추적하고, 소비 현황을 실시간으로 분석해 주는 서비스입니다. 단순한 가계부를 넘어 예산 대비 지출 비율에 따른 피드백과 매일 소비 목표 달성 시 스탬프를 제공해 건강한 소비 습관 형성을 돕습니다. 백엔드 서버는 소셜 로그인, 예산 기간 관리, 지출 내역 관리, 대시보드 통계 등 핵심 비즈니스 로직을 RESTful API로 제공합니다.',
+          overview: [
+            '목표 예산 관리 및 지출 분석 REST API 서버.',
+            '30일 예산 기간 기반 활성/완료 상태 관리.',
+            'Kakao OAuth 2.0 및 JWT 기반 인증 구조.',
+            '예산 대비 지출 비율, 카테고리별 소비 분포, 캘린더 기반 통계 제공.',
+          ],
           responsibilities: [
-            '백엔드 파트 리드로 참여해 프로젝트 초기 설계와 개발 방향을 주도했습니다.',
-            '데이터베이스 ERD와 API 명세서를 설계하고, 초기 프로젝트 세팅과 코드 컨벤션 및 Git Flow 정책을 정리했습니다.',
-            '인증/인가, 회원 관리, 예산 기간 도메인 등 핵심 백엔드 기능을 직접 구현했습니다.',
+            '백엔드 파트 리드.',
+            '프로젝트 초기 구조 및 개발 방향 수립.',
+            'ERD 및 API 명세 설계/문서화.',
+            '코드 컨벤션, Git Flow, 초기 프로젝트 세팅 정리.',
+            '인증/인가, 회원 관리, 예산 기간 도메인 구현.',
           ],
           implementations: [
-            '프로젝트 시작 단계에서 ERD와 API 명세서를 설계하고, 팀원들이 일관된 기준으로 개발할 수 있도록 코드 컨벤션과 Git Flow 정책을 수립했습니다.',
-            'Kakao OAuth 2.0과 JWT 기반 소셜 로그인, 토큰 재발급, 로그아웃 기능을 구현하고 마이페이지 정보 조회, 이름 수정, 회원 탈퇴 기능을 개발했습니다.',
-            '30일 단위 예산 기간 생성, 활성 예산 및 완료 예산 조회, 절약 금액과 초과 금액 계산 등 서비스의 핵심 도메인 로직을 설계하고 구현했습니다.',
+            'Kakao OAuth 2.0 인가 코드 기반 로그인 구현.',
+            'JWT Access/Refresh Token 발급, 저장, 재발급, 로그아웃 구현.',
+            '마이페이지 조회, 이름 수정, 회원 탈퇴 및 Kakao 연결 해제 구현.',
+            '30일 단위 예산 기간 생성 및 활성/완료 예산 조회 구현.',
+            '예산 대비 지출 합계, 절약/초과 금액, 카테고리별 지출 집계 구현.',
           ],
           techStack: ['Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'MySQL', 'Docker', 'AWS'],
-          lessons: 'PM, 디자이너, 프론트엔드, 백엔드가 모두 함께한 협업 팀 프로젝트를 처음 경험하며, 기획부터 디자인, API 설계, 기능 구현, 테스트까지 프로젝트가 어떤 흐름으로 진행되는지 큰 그림을 이해할 수 있었습니다. 초기 ERD와 API 명세서, 코드 컨벤션을 정리하면서 명확한 문서화와 개발 규칙이 팀 협업에 얼마나 중요한지도 체감했습니다. 또한 Kakao OAuth 2.0 기반 소셜 로그인을 처음 구현하며 외부 인증 제공자와의 연동 흐름, JWT 발급 및 재발급 과정 등 인증/인가 구조를 이해할 수 있었습니다. 예산 기간의 활성/만료 상태, 남은 예산 계산, 초과 여부 판단처럼 단순 CRUD를 넘어선 도메인 규칙을 구현하며 비즈니스 로직 설계 역량도 키웠습니다.',
+          lessons: 'PM, 디자이너, 프론트엔드, 백엔드가 함께한 협업 팀 프로젝트에서 백엔드 파트 리드로 참여하며, 기획 단계의 요구사항을 ERD와 API 명세, 코드 컨벤션, Git Flow 같은 개발 기준으로 구체화하는 경험을 했습니다. 이 과정에서 초기 설계와 문서화가 단순한 정리 작업이 아니라, 팀원들이 같은 기준으로 기능을 구현하고 프론트엔드와 안정적으로 연동하기 위한 협업 기반이라는 점을 체감했습니다. 또한 Kakao OAuth 2.0과 JWT 기반 인증을 구현하며 외부 인증 제공자와의 연동 흐름, Access/Refresh Token 발급과 재발급, 로그아웃 처리 등 인증/인가 구조를 실제 서비스 흐름 안에서 이해할 수 있었습니다. 예산 기간의 활성/완료 상태, 예산 대비 지출 합계, 절약/초과 금액 계산처럼 단순 CRUD를 넘어선 도메인 규칙을 구현하면서 비즈니스 로직을 데이터 모델과 API 응답에 자연스럽게 녹이는 설계 역량도 키웠습니다.',
         },
         role: 'Backend Development',
         repo: 'https://github.com/Leets-Official/MoniFit-BE',
@@ -226,25 +242,32 @@ const projectGroups: ProjectGroup[] = [
       {
         title: 'After-Buy',
         subtitle: '가천대학교 졸업 프로젝트',
-        date: '2026.03 - PRESENT',
+        date: '2026.03 - 2026.06',
         description: 'MSA 기반으로 전자제품의 구매 정보와 보증기간을 관리하고, OCR과 알림을 통해 사후 관리를 돕는 서비스.',
+        image: '/images/after-buy.png',
         detail: {
-          overview: 'After-Buy는 사용자가 전자제품의 구매 정보, 영수증, 보증기간을 등록하고 만료 시점을 관리할 수 있도록 돕는 프로젝트입니다. 백엔드는 인증, 제품 관리, 알림, 관리자 서비스와 OCR 처리용 Lambda로 구성된 MSA 구조이며, 각 서비스가 독립적으로 배포될 수 있도록 인프라와 CI/CD 흐름을 설계했습니다.',
+          overview: [
+            '전자제품 구매 정보, 영수증, 보증기간을 관리하고 OCR과 푸시 알림으로 사후 관리를 지원하는 서비스.',
+            'Auth, Device, Notification, Admin API와 사용자 앱, 관리자 웹, OCR Lambda, Infra 레포로 분리된 MSA 구조.',
+            'Nginx API Gateway와 Docker Compose를 기반으로 백엔드 서비스를 EC2의 단일 네트워크에서 운영.',
+            'Amazon Textract 기반 OCR Lambda로 모델명, 시리얼 번호, 영수증 구매 정보를 추출해 Device Service와 연동.',
+          ],
           responsibilities: [
-            'AWS 기반 클라우드 서비스 구성과 전체 인프라 구조 설계를 담당했습니다.',
-            'MSA 서비스들을 EC2, Docker Compose, Nginx 기반 런타임 환경에서 운영할 수 있도록 배포 구조를 설계했습니다.',
-            'GitHub Actions, GHCR, Docker를 활용한 서비스별 CI/CD 환경을 구축했습니다.',
-            'OCR 처리용 Lambda, MySQL, S3 등 외부 클라우드/서비스 연동에 필요한 운영 환경을 정리했습니다.',
+            'MSA 기반 전체 시스템 아키텍처와 서비스 간 요청 흐름 설계.',
+            '비용과 자원 제약을 고려한 단일 EC2 기반 MSA 운영 인프라 설계 및 구성.',
+            'GitHub Actions와 GHCR을 이용한 서비스별 Docker 이미지 빌드 및 dev/prod 배포 파이프라인 구축.',
+            'OCR Lambda 배포와 Device Service 연동에 필요한 S3, Textract, Lambda Function URL, 내부 Secret 환경 구성.',
           ],
           implementations: [
-            '인증, 제품 관리, 알림, 관리자 서비스를 각각 Docker 이미지로 빌드하고 GHCR에 푸시한 뒤, EC2에서 대상 서비스의 이미지를 갱신하고 컨테이너를 재기동하는 배포 흐름을 구성했습니다.',
-            'develop/main 브랜치에 따라 개발/운영 이미지 태그와 배포 대상을 분리하는 GitHub Actions 배포 파이프라인을 설계했습니다.',
-            '인프라 저장소에 Docker Compose와 Nginx 설정을 구성해 서비스별 컨테이너 네트워크, 포트, 리버스 프록시, HTTPS 종단 흐름을 정리했습니다.',
-            'OCR 처리용 Lambda는 GitHub Actions에서 함수 코드와 파서 모듈을 패키징해 AWS Lambda에 배포하고, 필요한 환경변수까지 함께 갱신되도록 구성했습니다.',
-            '서비스별 MySQL 데이터베이스, S3 이미지 저장, Lambda Function URL, Amazon Textract, Gemini API 연동을 고려해 운영 환경변수와 Secret 관리 항목을 정리했습니다.',
+            '4개 Spring Boot 서비스(Auth, Device, Notification, Admin)를 독립 컨테이너로 실행하고 Nginx에서 각 API 경로로 라우팅.',
+            'develop/main 브랜치에 따라 dev/latest 이미지를 GHCR에 푸시하고 EC2에서 대상 서비스만 pull 및 재기동하도록 GitHub Actions 워크플로우 구성.',
+            '공통 Docker Compose와 dev/prod/local 오버라이드 파일을 분리해 개발 서버, 운영 서버, 로컬 실행 환경을 구분.',
+            'Let\'s Encrypt 인증서 마운트, HTTP to HTTPS 리다이렉트, 헬스 체크, 컨테이너 로그 로테이션을 포함한 Nginx 운영 설정 작성.',
+            'OCR Lambda 패키징 및 배포 워크플로우를 구성하고 Textract 결과를 모델명, 시리얼 번호, 구매일/가격/구매처 파서로 분리.',
+            '내부 통신용 Secret과 S3/Lambda/Textract/외부 API 환경변수를 각 서비스 실행 환경에 주입.',
           ],
-          techStack: ['Java 21', 'Spring Boot', 'MySQL', 'AWS', 'Lambda', 'Amazon Textract', 'Docker', 'Nginx', 'GitHub Actions'],
-          lessons: '현재 진행 중인 프로젝트이므로, 프로젝트 완료 후 인프라 설계와 CI/CD 구축 과정에서의 회고를 정리할 예정입니다.',
+          techStack: ['AWS EC2', 'AWS S3', 'AWS Lambda', 'Amazon Textract', 'Docker', 'Docker Compose', 'Nginx', 'GitHub Actions', 'GHCR', "Let's Encrypt"],
+          lessons: 'MSA 구조에서는 기능을 서비스별로 나누는 것뿐 아니라, 각 서비스가 어떤 경로로 요청을 받고 어떤 방식으로 배포되는지까지 함께 설계되어야 한다는 점을 배웠습니다. 실제 운영 환경이라면 서비스별 인스턴스 분리, 로드 밸런서, 컨테이너 오케스트레이션 등을 고려하는 것이 일반적이지만, 학부 졸업 프로젝트에서는 비용과 자원 제약이 있어 단일 EC2에서 Docker Compose로 여러 서비스를 운영하는 절충안을 선택했습니다. 대신 서비스 책임과 배포 단위는 분리하고, Nginx를 API Gateway처럼 구성해 MSA의 구조적 경계는 유지하려고 했습니다. 또한 GitHub Actions와 GHCR 기반 배포 자동화, OCR Lambda와 S3/Textract 연동을 구성하면서 여러 레포와 서비스가 하나의 시스템처럼 동작하도록 아키텍처, 라우팅, 배포 흐름을 함께 설계하는 경험을 했습니다.',
         },
         role: 'Cloud & Infrastructure',
         repo: 'https://github.com/After-Buy',
@@ -265,22 +288,30 @@ const projectGroups: ProjectGroup[] = [
         description: 'MSA 기반 기숙사 룸메이트 매칭 및 실시간 채팅 서비스.',
         image: '/images/gachon-dorm-matching.png',
         detail: {
-          overview: '가천대학교 학생들을 위한 기숙사 룸메이트 매칭 플랫폼입니다. 사용자의 기숙사, 성별, 생활 패턴, 선호도 정보를 기반으로 룸메이트 모집 게시글을 작성하고, 매칭 신청과 수락 이후 실시간 1:1 채팅으로 소통할 수 있도록 구성했습니다. 전체 시스템은 인증, 매칭, 채팅, 프론트엔드, 데이터베이스, 프록시 서버를 분리한 Docker 기반 MSA 구조입니다.',
+          overview: [
+            '가천대학교 학생 대상 기숙사 룸메이트 매칭 및 실시간 채팅 플랫폼.',
+            '기숙사, 성별, MBTI, 생활 패턴, 선호도 기반 룸메이트 모집 게시글 작성 및 필터링 제공.',
+            '매칭 신청, 수락, 거절, 자동 마감, 실시간 채팅과 알림까지 이어지는 사용자 흐름 구현.',
+            'User, Match, Chat, Frontend, MySQL, Redis, Nginx를 Docker Compose로 구성한 MSA 실행 환경.',
+            'Nginx에서 프론트엔드, REST API, Socket.IO WebSocket 요청을 각 서비스로 라우팅.',
+          ],
           responsibilities: [
-            '개인 프로젝트로 서비스 기획, 데이터베이스 설계, 백엔드 API 구현, 프론트엔드 연동, Docker 기반 실행 환경 구성을 전반적으로 담당했습니다.',
-            '회원 인증, 프로필 관리, 게시글/매칭 도메인, 실시간 채팅 도메인을 서비스별로 분리해 MSA 구조로 설계했습니다.',
-            'Docker Compose와 Nginx 리버스 프록시를 구성해 프론트엔드, 백엔드 API, 실시간 채팅 요청이 각 서비스로 라우팅되도록 구성했습니다.',
+            '서비스 기획, 화면 흐름 정의, 데이터베이스 스키마 설계.',
+            '회원/프로필, 게시글/매칭, 실시간 채팅 도메인을 서비스 단위로 분리한 MSA 구조 설계.',
+            'Node.js/Express, FastAPI, Socket.IO 기반 백엔드 서비스와 React 프론트엔드 구현.',
+            'Docker Compose 기반 로컬 실행 환경과 Nginx 리버스 프록시/API 라우팅 구성.',
           ],
           implementations: [
-            'Node.js와 Express로 학교 이메일 도메인 검증, bcrypt 비밀번호 암호화, JWT 기반 로그인과 프로필 관리 기능을 구현했습니다.',
-            'Python과 FastAPI로 룸메이트 모집 게시글 CRUD, 기숙사/성별/모집 상태 필터링, 매칭 신청/수락/거절 흐름을 구현했습니다.',
-            '매칭 수락 시 게시글을 자동 마감하고 다른 신청자에게 거절 알림을 남기는 도메인 로직을 구성했습니다.',
-            'Node.js와 Socket.IO로 매칭 이후 1:1 채팅방 생성, 실시간 메시지 송수신, 알림 기록과 읽음 처리 흐름을 구현했습니다.',
-            'Nginx 리버스 프록시를 구성해 인증, 프로필, 게시글, 매칭, 채팅, 알림, WebSocket 요청이 각 서비스로 라우팅되도록 설정했습니다.',
-            'MySQL 기반으로 Users, Profiles, Posts, MatchRequests, ChatRooms, ChatMessages, Notifications 테이블 구조를 설계했습니다.',
+            'User Service에서 가천대 이메일 도메인 검증, bcrypt 비밀번호 암호화, JWT 로그인, 회원가입 시 Users/Profiles 트랜잭션 저장 구현.',
+            'Match Service에서 모집 게시글 CRUD, 기숙사/성별/모집 상태 필터링, 게시글 상세 조회수 증가, 사용자별 게시글 통계 조회 구현.',
+            '매칭 신청/수락/거절 흐름과 성별 일치 검증을 구현하고, 수락 시 게시글 자동 마감 및 다른 신청자 자동 거절 로직 구성.',
+            'Chat Service에서 Socket.IO 기반 1:1 채팅, 채팅방 중복 방지, 첫 메시지 전송 시 채팅방 생성, 읽지 않은 메시지 수와 알림 읽음 처리 구현.',
+            'React와 Material-UI 기반 프론트엔드에서 인증, 프로필, 게시글, 매칭, 채팅 화면과 API/WebSocket 연동 구현.',
+            'Users, Profiles, Posts, MatchRequests, ChatRooms, ChatMessages, Notifications 테이블과 FK, Unique 제약, 조회 인덱스 설계.',
+            'Docker Compose로 각 서비스를 동일 네트워크에 구성하고 Nginx에서 프론트엔드, REST API, WebSocket 요청을 라우팅.',
           ],
-          techStack: ['Node.js', 'Express', 'FastAPI', 'React', 'MySQL', 'Redis', 'Socket.IO', 'Docker', 'Nginx'],
-          lessons: '단일 서버로 모든 기능을 구현하는 방식이 아니라 인증, 매칭, 채팅을 서비스 단위로 분리하면서 MSA 구조에서 서비스 간 책임을 나누는 기준을 경험했습니다. 또한 HTTP API와 WebSocket 요청을 Nginx에서 함께 라우팅하고 Docker Compose 네트워크 안에서 컨테이너 이름으로 통신하도록 구성하며, 로컬 개발 환경에서도 운영 구조를 고려한 서비스 배치 방식을 익혔습니다. 이 프로젝트는 AI 에이전트를 처음 활용해 개발한 프로젝트이기도 해서, 에이전트에게 어떤 단위로 작업을 맡기고 결과물을 어떻게 검증해야 하는지에 대한 감을 잡을 수 있었습니다.',
+          techStack: ['Node.js', 'Express', 'Python', 'FastAPI', 'React', 'Material-UI', 'MySQL', 'Redis', 'Socket.IO', 'Docker', 'Docker Compose', 'Nginx'],
+          lessons: '개인 프로젝트로 서비스 기획부터 프론트엔드, 백엔드, 데이터베이스, Docker 실행 환경까지 직접 구성하면서 기능 단위가 아니라 도메인 책임 단위로 시스템을 나누는 기준을 경험했습니다. 인증/프로필, 게시글/매칭, 실시간 채팅을 각각 다른 서비스로 분리하면서 각 서비스가 어떤 데이터를 소유하고 어떤 API로 연결되어야 하는지 고민할 수 있었습니다. 특히 Socket.IO 기반 실시간 채팅을 구현하며 채팅방 생성, 메시지 저장, 읽음 처리, 알림 흐름을 REST API와 WebSocket 이벤트가 함께 동작하도록 설계하는 경험을 했습니다. 또한 HTTP API와 WebSocket 요청을 Nginx에서 함께 라우팅하고, Docker Compose 네트워크 안에서 컨테이너 이름으로 통신하도록 구성하며 로컬 환경에서도 실제 서비스 운영 구조를 고려한 배치 방식을 익혔습니다. 사용자 프로필, 게시글, 매칭 신청, 채팅방, 알림이 서로 이어지는 흐름을 구현하면서 기능 구현 전에 데이터 모델과 도메인 관계를 먼저 정리하는 것이 이후 API 설계와 구현 안정성에 큰 영향을 준다는 점도 배웠습니다.',
         },
         role: 'Full Stack Development',
         repo: 'https://github.com/HYUNJOON-SUNG/Gachon-Dorm-matching',
@@ -301,20 +332,30 @@ const projectGroups: ProjectGroup[] = [
         description: '비주류 음악을 발굴하고 기록하며, 시간이 지나며 해당 음악의 성장률을 확인할 수 있는 음악 큐레이션 서비스.',
         image: '/images/hongdae-byeongdong.png',
         detail: {
-          overview: '홍대병동은 비주류 음악을 발굴하고, 사용자가 발견한 음악을 DIG로 기록하며 공유할 수 있는 음악 큐레이션 서비스입니다. 백엔드는 Spring Boot 기반 API 서버로 사용자 인증, 음악 검색, DIG 생성/조회, DIG 검색 기능을 제공하며, YouTube API와 Gemini API를 활용해 음악 검색 결과와 메타데이터를 처리합니다.',
+          overview: [
+            '비주류 음악 발견 및 공유 기반 음악 큐레이션 서비스.',
+            '발견한 음악을 DIG로 기록하는 흐름 제공.',
+            '사용자 인증, 음악 검색, DIG 생성/조회, DIG 검색 API 제공.',
+            'YouTube API 및 Gemini API 기반 음악 검색 결과 처리.',
+            'Gemini API 기반 음악 메타데이터 정제.',
+          ],
           responsibilities: [
-            '백엔드 개발자로 참여해 외부 음악 API 연동과 배포 자동화 영역을 담당했습니다.',
-            'YouTube API 기반 음악 검색 기능을 구현하고, 검색 결과에서 서비스에 필요한 영상 ID, 제목, 아티스트, 조회수, 업로드 날짜, 썸네일 정보를 반환하도록 구성했습니다.',
-            'Gemini API를 활용해 YouTube 원본 제목과 채널명을 분석하고, 실제 아티스트명과 곡 제목을 정제하는 메타데이터 처리 흐름을 구현했습니다.',
-            'GitHub Actions, Docker, GHCR, EC2를 활용한 CI/CD 파이프라인을 구축했습니다.',
+            '외부 음악 API 연동 담당.',
+            'YouTube API 기반 음악 검색 기능 구현.',
+            '검색 결과 메타데이터 반환 구조 구성.',
+            'Gemini API 기반 아티스트명 및 곡 제목 정제 흐름 구현.',
+            'GitHub Actions, Docker, GHCR, EC2 기반 CI/CD 구축.',
           ],
           implementations: [
-            '음악 검색 API를 구현해 검색어 검증 후 YouTube에서 음악 카테고리 영상을 조회하고, 최상위 검색 결과를 서비스 응답으로 변환했습니다.',
-            'YouTube Search API와 Videos API를 함께 사용해 검색 결과의 영상 기본 정보와 조회수를 분리 조회한 뒤 하나의 응답으로 조합했습니다.',
-            'Gemini API에 시스템 지시문과 JSON 응답 형식을 지정해 YouTube 제목/채널명에서 아티스트와 곡 제목만 안정적으로 추출하도록 구성했습니다.',
-            '외부 API 키 누락, 검색 결과 없음, API 호출 실패 상황을 공통 예외 응답으로 처리해 클라이언트가 일관된 실패 응답을 받을 수 있도록 했습니다.',
-            'main 브랜치 push 시 테스트 실행, Docker 이미지 빌드, GHCR 푸시, EC2 SSH 접속 후 컨테이너 재기동까지 이어지는 GitHub Actions 배포 workflow를 구성했습니다.',
-            '멀티 스테이지 Dockerfile을 작성해 Gradle bootJar 결과물을 Java 17 JRE 이미지에서 실행하도록 배포 이미지를 구성했습니다.',
+            '검색어 검증 및 YouTube 음악 카테고리 영상 조회 구현.',
+            '최상위 검색 결과 서비스 응답 변환 구현.',
+            'YouTube Search API, Videos API 조합 조회 구성.',
+            '영상 기본 정보 및 조회수 통합 응답 구성.',
+            'Gemini API JSON 응답 형식 지정.',
+            'YouTube 제목/채널명 기반 아티스트 및 곡 제목 추출 구현.',
+            '외부 API 키 누락, 검색 결과 없음, API 호출 실패 예외 처리.',
+            '테스트, Docker 이미지 빌드, GHCR 푸시, EC2 재기동 배포 workflow 구성.',
+            '멀티 스테이지 Dockerfile 및 Java 17 JRE 배포 이미지 구성.',
           ],
           techStack: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'MySQL', 'Swagger', 'YouTube API', 'Gemini API', 'Docker', 'GitHub Actions', 'GHCR', 'EC2'],
           lessons: '해커톤이라는 짧은 일정 안에서 외부 API 기반 기능을 서비스 흐름에 맞게 빠르게 붙이고, 응답 형태를 프론트엔드가 바로 사용할 수 있도록 정제하는 경험을 했습니다. 특히 YouTube 검색 결과처럼 원본 데이터가 일정하지 않은 경우 Gemini를 활용해 메타데이터를 보정하면서, AI API를 단순 호출하는 것보다 명확한 출력 형식과 실패 처리 기준을 함께 설계하는 것이 중요하다는 점을 배웠습니다. 또한 CI/CD를 직접 구축하며 기능 구현 이후 배포까지 이어지는 백엔드 개발 흐름을 정리할 수 있었습니다.',
@@ -475,7 +516,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
               variants={fadeUp}
               src={project.image}
               alt={`${project.title} preview`}
-              className="mt-10 aspect-video w-full rounded-lg border border-stone-200 object-cover shadow-sm shadow-stone-200/70"
+              className="mt-10 w-full rounded-lg border border-stone-200 shadow-sm shadow-stone-200/70"
             />
           ) : null}
 
@@ -494,9 +535,9 @@ function ProjectDetailPage({ project }: { project: Project }) {
                         ))}
                       </div>
                     ) : (
-                      <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
+                      <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-7 text-stone-700 marker:text-emerald-700">
                         {details[field].map((item) => (
-                          <li key={item} className="break-keep">
+                          <li key={item} className="break-keep pl-1">
                             {item}
                           </li>
                         ))}
