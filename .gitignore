@@ -6,4 +6,5 @@ coverage/
 *.log
 .env*
 !.env.example
-/docs
+/docs/*
+!/docs/git-convention.md

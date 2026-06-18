@@ -100,7 +100,7 @@ const activities: Activity[] = [
   {
     icon: Globe2,
     title: 'WFK IT Volunteer Corps',
-    subtitle: 'WKT IT 해외봉사단 · 인도네시아 파견',
+    subtitle: 'WFK IT 해외봉사단 · 인도네시아 IT 교육봉사',
     date: '2025.08',
     url: 'https://www.instagram.com/wfk_codo/',
   },
@@ -114,7 +114,7 @@ const activities: Activity[] = [
   {
     icon: Server,
     title: 'UMC 10th',
-    subtitle: '대학 연합 IT 동아리, Spring Boot 파트',
+    subtitle: '대학 연합 IT 동아리 · Spring Boot 시니어 코스 / 스터디 리더',
     date: '2026.03 - PRESENT',
     url: 'https://umc.makeus.in/',
   },
