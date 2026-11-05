@@ -42,7 +42,7 @@ type Project = {
   image?: string;
   detail?: ProjectDetail;
   role?: string;
-  repo: string;
+  repo?: string;
   tags: string[];
   slug: string;
 };
@@ -114,8 +114,15 @@ const activities: Activity[] = [
   {
     icon: Server,
     title: 'UMC 10th',
-    subtitle: '대학 연합 IT 동아리 · Spring Boot 시니어 코스 / 스터디 리더',
+    subtitle: '대학 연합 IT 동아리 · Spring Boot 파트',
     date: '2026.03 - PRESENT',
+    url: 'https://umc.makeus.in/',
+  },
+  {
+    icon: Server,
+    title: 'UMC 11th',
+    subtitle: '대학 연합 IT 동아리 · 부회장',
+    date: '2026.09 - PRESENT',
     url: 'https://umc.makeus.in/',
   },
 ];
@@ -273,6 +280,17 @@ const projectGroups: ProjectGroup[] = [
         repo: 'https://github.com/After-Buy',
         tags: ['MSA', 'AWS', 'CI/CD', 'Docker', '인프라'],
         slug: 'after-buy',
+      },
+      {
+        title: 'I Pill Good',
+        subtitle: '개인 맞춤 영양제 추천 서비스',
+        date: '2026.06 - 2026.08',
+        description: '개인 건강 정보와 컨디션을 기반으로 AI 맞춤 영양제를 추천하고, 복용 기록 및 알림을 통해 꾸준한 영양제 섭취를 돕는 서비스.',
+        image: '/images/ipillgood.png',
+        role: 'Backend Developer',
+        repo: 'https://github.com/UMC-I-Pill-Good/IPillGood-server',
+        tags: ['AI 영양제 추천', '복용 기록', '알림'],
+        slug: 'i-pill-good',
       },
     ],
   },
@@ -437,7 +455,7 @@ function WorkingStyleCard({ icon: Icon, title, description }: ComponentProps<Wor
 
 const detailFields = ['프로젝트 개요', '담당 역할', '주요 구현', '사용 기술', '배운 점'] as const;
 
-function ProjectCard({ title, subtitle, date, description, image, role, repo, slug }: ComponentProps<Project>) {
+function ProjectCard({ title, subtitle, date, description, image, detail, role, repo, slug }: ComponentProps<Project>) {
   return (
     <motion.article variants={fadeUp} className="grid gap-6 rounded-lg border border-stone-200 bg-white/85 p-5 shadow-sm shadow-stone-200/70 transition-colors hover:border-emerald-300 md:p-6">
       <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
@@ -445,15 +463,17 @@ function ProjectCard({ title, subtitle, date, description, image, role, repo, sl
           <h4 className="break-keep text-2xl font-black tracking-tight text-stone-950">{title}</h4>
           <p className="mt-2 break-keep text-sm font-semibold text-emerald-700">{subtitle}</p>
         </div>
-        <a
-          href={repo}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${title} repository`}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition-colors hover:border-emerald-500 hover:text-emerald-700"
-        >
-          <Github className="h-5 w-5" />
-        </a>
+        {repo ? (
+          <a
+            href={repo}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${title} repository`}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition-colors hover:border-emerald-500 hover:text-emerald-700"
+          >
+            <Github className="h-5 w-5" />
+          </a>
+        ) : null}
       </div>
 
       <div className="aspect-video w-full overflow-hidden rounded-lg border border-stone-200 bg-stone-100/70">
@@ -474,9 +494,11 @@ function ProjectCard({ title, subtitle, date, description, image, role, repo, sl
           {date}
         </span>
         {role ? <span className="rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5">{role}</span> : null}
-        <a href={`/projects/${slug}`} className="ml-auto rounded-md bg-emerald-800 px-3 py-1.5 font-sans text-xs font-bold text-white transition-colors hover:bg-emerald-700">
-          상세 보기
-        </a>
+        {detail ? (
+          <a href={`/projects/${slug}`} className="ml-auto rounded-md bg-emerald-800 px-3 py-1.5 font-sans text-xs font-bold text-white transition-colors hover:bg-emerald-700">
+            상세 보기
+          </a>
+        ) : null}
       </div>
     </motion.article>
   );
@@ -547,12 +569,14 @@ function ProjectDetailPage({ project }: { project: Project }) {
             ))}
           </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-8">
-            <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-500 hover:text-emerald-800">
-              <Github className="h-5 w-5" />
-              GitHub
-            </a>
-          </motion.div>
+          {project.repo ? (
+            <motion.div variants={fadeUp} className="mt-8">
+              <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white/70 px-5 py-3 font-bold text-stone-800 transition-colors hover:border-emerald-500 hover:text-emerald-800">
+                <Github className="h-5 w-5" />
+                GitHub
+              </a>
+            </motion.div>
+          ) : null}
         </motion.section>
       </main>
     </div>
